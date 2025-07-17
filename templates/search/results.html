@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="mb-4">Results for <span class="text-primary">"{{ search.query }}"</span></h2>
+
+  <!-- Sorting and Refresh Buttons -->
+  <div class="mb-4 d-flex gap-2 flex-wrap">
+    <a href="{% url 'search:results' search.id %}?sort=desc" class="btn btn-outline-primary {% if current_sort == 'desc' %}active disabled{% endif %}">
+      Newest First
+    </a>
+    <a href="{% url 'search:results' search.id %}?sort=asc" class="btn btn-outline-primary {% if current_sort == 'asc' %}active disabled{% endif %}">
+      Oldest First
+    </a>
+    <a href="{% url 'search:refresh' search.id %}" class="btn btn-outline-secondary">
+      Refresh
+    </a>
+  </div>
+
+  <!-- Articles List -->
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for article in articles %}
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          {% if article.url_to_image %}
+            <img src="{{ article.url_to_image }}" class="card-img-top" alt="Article Image" style="height: 200px; object-fit: cover;">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="{{ article.url }}" target="_blank" class="text-decoration-none text-dark">{{ article.title }}</a>
+            </h5>
+            <p class="card-text">{{ article.description }}</p>
+          </div>
+          <div class="card-footer text-muted small">
+            <strong>Published:</strong> {{ article.published_at }}
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-muted">No articles found.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

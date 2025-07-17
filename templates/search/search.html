@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Search for News</h2>
+  <form method="POST" class="mb-4">
+    {% csrf_token %}
+    <div class="input-group">
+      <input type="text" name="query" class="form-control" placeholder="Search news..." required>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </form>
+
+  <h3 class="mt-5">Latest Global News 🌍</h3>
+<div class="row">
+  {% for article in latest_articles %}
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        {% if article.urlToImage %}
+          <img src="{{ article.urlToImage }}" class="card-img-top" alt="Image">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ article.title }}</h5>
+          <p class="card-text">{{ article.description|truncatechars:100 }}</p>
+          <a href="{{ article.url }}" class="btn btn-primary" target="_blank">Read more</a>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>No latest articles found.</p>
+  {% endfor %}
+</div>
+
+</div>
+{% endblock %}

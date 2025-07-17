@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Search History{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="mb-4">Your Search History</h2>
+
+  {% if searches %}
+    <ul class="list-group">
+      {% for search in searches %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <strong>{{ search.query }}</strong><br>
+            <small class="text-muted">{{ search.searched_at|date:"F j, Y, g:i a" }}</small>
+          </div>
+          <a href="{% url 'search:results' search.id %}" class="btn btn-sm btn-primary">View Results</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="alert alert-info">No previous searches found.</div>
+  {% endif %}
+</div>
+{% endblock %}
