@@ -14,8 +14,8 @@ This is a Django-based web application that allows registered users to search fo
 - ✅ Admin dashboard to **block/unblock users**
 - ✅ Display of latest headlines on the homepage
 - ✅ Sort articles by publish date (newest/oldest)
-- ✅ Apply filters: date range, source name, language
-- ✅ Friendly message for blocked/inactive users
+- ✅ Apply filters: date range, source name, language (The language filter is yet to be implmented as the NewsApi everything/ endpoint which we're using does'nt yet have a parameter for languages)
+- ✅ Restricting access to blocked users by admin
 
 ---
 
@@ -35,13 +35,13 @@ This is a Django-based web application that allows registered users to search fo
 
 ```bash
 git clone https://github.com/shravlearner/newsApp.git
-cd newsApp/src
+cd newsApp
 ```
 
 ### 2. Create Virtual environment
 
 ```bash
-python -m venv env (You may use the virtual environment module as well)
+python -m venv env # (You may use the virtual environment module as well using pip install virtualenv)
 On Windows: env\Scripts\activate
 ```
 
@@ -59,7 +59,7 @@ python manage.py createsuperuser
 ```
 ### 6. Run the server
 ```bash
-python manage.py createsuperuser
+python manage.py runserver
 ```
 Open your browser and go to: http://127.0.0.1:8000
 👤 Admin Panel
@@ -74,7 +74,7 @@ Only authenticated users can search and view results
 
 Inactive/blocked users cannot log in
 
-Custom friendly message for blocked users
+Custom friendly message for blocked users 
 
 Each user can only see their own search history and results
 
