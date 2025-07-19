@@ -36,6 +36,114 @@ This is a Django-based web application that allows registered users to search fo
 ```bash
 git clone https://github.com/shravlearner/newsApp.git
 cd newsApp/src
+```
 
 ### 2. Create Virtual environment
+
+```bash
+python -m venv env (You may use the virtual environment module as well)
+On Windows: env\Scripts\activate
+```
+
+### 3. Install Dependencies
+```bash
+pip install -r ../requirements.txt
+```
+### 4. Migrate Database
+```bash
+python manage.py migrate
+```
+### 5. Creat super user(for admin access)
+```bash
+python manage.py createsuperuser
+```
+### 6. Run the server
+```bash
+python manage.py createsuperuser
+```
+Open your browser and go to: http://127.0.0.1:8000
+👤 Admin Panel
+Visit: http://127.0.0.1:8000/admin
+
+Log in with your superuser credentials
+
+Manage users, searches, and block/unblock users
+
+🔐 Authentication Features
+Only authenticated users can search and view results
+
+Inactive/blocked users cannot log in
+
+Custom friendly message for blocked users
+
+Each user can only see their own search history and results
+
+📄 Functional Highlights
+🔁 Prevent Repetitive API Calls
+If a user searches the same keyword within 15 minutes:
+
+A message is shown and saved results are used.
+
+🔄 Refresh Results
+Clicking “Refresh” on results page:
+
+Only fetches newer articles than the most recent saved one.
+
+🔍 Filters
+You can filter search results by:
+
+✅ Date range (start/end)
+
+✅ Source name (e.g., BBC, CNN)
+
+✅ Language (e.g., en, hi) (limited support due to NewsAPI restrictions)
+
+✍️ How Django Is Used
+Models: Search, Article connected via foreign key
+
+Views: Handle user actions, API integration, DB interaction
+
+Templates: Render HTML using Django Template Language
+
+Admin: User and model management
+
+Middleware: Used for custom login messaging
+
+💡 Future Enhancements (Bonus Ideas)
+✅ Show original news article in a modal (same page)
+
+⏰ Background job to auto-refresh tracked searches
+
+📊 Admin dashboard showing trending keywords
+
+🔢 Quota per user on tracked keywords
+
+📁 Folder Structure
+bash
+Copy
+Edit
+newsApp/
+├── src/
+│   ├── search/             # App for search-related logic
+│   ├── users/              # App for user registration/login
+│   ├── templates/          # HTML templates
+│   ├── static/             # Static files (CSS/JS)
+│   ├── manage.py
+│   └── newsAppProject/     # Project config and settings
+├── requirements.txt
+└── README.md               # You're here
+📌 Requirements
+See requirements.txt for all Python dependencies.
+
+🙋‍♀️ Author
+Shravani Raut
+B.Tech, ENTC — VIT Pune
+AI/ML + Software Dev enthusiast
+
+🌐 Credits
+NewsAPI.org — News data source
+
+Django — Python web framework
+
+Bootstrap — Frontend styling
 
