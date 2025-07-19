@@ -118,20 +118,6 @@ Middleware: Used for custom login messaging
 
 🔢 Quota per user on tracked keywords
 
-📁 Folder Structure
-bash
-Copy
-Edit
-newsApp/
-├── src/
-│   ├── search/             # App for search-related logic
-│   ├── users/              # App for user registration/login
-│   ├── templates/          # HTML templates
-│   ├── static/             # Static files (CSS/JS)
-│   ├── manage.py
-│   └── newsAppProject/     # Project config and settings
-├── requirements.txt
-└── README.md               # You're here
 📌 Requirements
 See requirements.txt for all Python dependencies.
 
