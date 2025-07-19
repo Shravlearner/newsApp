@@ -14,7 +14,7 @@ This is a Django-based web application that allows registered users to search fo
 - ✅ Admin dashboard to **block/unblock users**
 - ✅ Display of latest headlines on the homepage
 - ✅ Sort articles by publish date (newest/oldest)
-- ✅ Apply filters: date range, source name, language (The language filter is yet to be implmented as the NewsApi everything/ endpoint which we're using does'nt yet have a parameter for languages)
+- ✅ Apply filters: date range, source name, language (The language filter is yet to be implmented as the NewsApi everything/ endpoint which we're using doesn't yet have a parameter for languages)
 - ✅ Restricting access to blocked users by admin
 
 ---
