@@ -135,15 +135,4 @@ newsApp/
 📌 Requirements
 See requirements.txt for all Python dependencies.
 
-🙋‍♀️ Author
-Shravani Raut
-B.Tech, ENTC — VIT Pune
-AI/ML + Software Dev enthusiast
-
-🌐 Credits
-NewsAPI.org — News data source
-
-Django — Python web framework
-
-Bootstrap — Frontend styling
 
